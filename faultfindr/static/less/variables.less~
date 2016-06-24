@@ -1,0 +1,8 @@
+// Variables
+
+@brand-primary: #d65c14; //#fed136;
+@brand-danger: #e74c3c;
+@gray-darkest: #d9d9d9; //#222;
+@gray: #777;
+@gray-lighter: #f7f7f7;
+@placeholder-text: #bbbbbb;

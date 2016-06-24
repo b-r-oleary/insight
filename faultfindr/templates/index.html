@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="icon" href="https://d30y9cdsu7xlg0.cloudfront.net/png/114-200.png">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>FaultFindr</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="static/css/agency.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href="static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<!--     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'> -->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.css" rel="stylesheet" /> <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
+
+<style>
+a.page-scroll {
+	color:black !important;
+}
+div.collapse navbar-collapse {
+	color:white !important;
+}
+ul.nav navbar-nav navbar-right {
+	color:white !important;
+}
+#bs-example-navbar-collapse-1 {
+	color:white !important;
+}
+
+ .navbar-default .navbar-nav > .active{
+    color: #000;
+   background: #d65c14;
+ }
+ .navbar-default .navbar-nav > .active > a, 
+ .navbar-default .navbar-nav > .active > a:hover, 
+ .navbar-default .navbar-nav > .active > a:focus {
+      color: #000;
+      background: #d65c14;
+ }
+
+ .nv-x text{
+  font-size: 20px;
+  /*fill: blue;*/
+}
+.nv-y text{
+  font-size: 20px;
+  /*fill:red;*/
+}
+.nv-label text{
+    font-size:20px;
+}
+.nv-controlsWrap .disabled text {
+    font-weight: normal !important;
+}
+
+.nv-controlsWrap .nv-series text {
+    font-weight: 600;
+}
+
+
+</style>
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top"> <!-- style="background-color: #d9d9d9;"> -->
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top" style="font-family: 'Pacifico', cursive;">FaultFindr</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+
+            	<div class="col-sm-3 col-md-3 pull-right">
+		        <form class="navbar-form" role="search" action="#portfolio" method="GET">
+		        <div class="input-group">
+		            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+		            <div class="input-group-btn">
+		                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+		            </div>
+		        </div>
+		        </form>
+		        </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden" >
+                        <a href="#page-top" ></a>
+                    </li>
+<!--                     <li>
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li> -->
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Browse</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#product">Product</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#similar">Similar</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#slides">Slides</a>
+                    </li>
+<!--                <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">Team</a>
+                    </li> -->
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-heading" style="text-transform:none;position:relative;top: -25px; font-family: 'Pacifico', cursive;font-weight: normal;">FaultFindr</div>
+                <div class="intro-lead-in" style="font-style:normal;position:relative;top: -50px;  max-width:350px; margin: 0 auto;font-family: 'Open Sans', sans-serif; color:gray;">Laptop Failure Modes from Amazon Product Reviews</div>
+<!--                 <a href="#services" class="page-scroll btn btn-xl" style="position:relative;top: -80px; background-color:#d65c14; border-color:#d65c14;">Explore</a> -->
+				<div class="row">
+					<!-- <h2>Stylish Search Box</h2> -->
+			           <div id="custom-search-input">
+			           <form class="navbar-form" role="search" action="#portfolio" method="GET">
+			                            <div class="input-group col-md-12" style="width: 300px;position:relative;top: -45px;margin: 0 auto;">
+			                                <input type="text" class="  search-query form-control" placeholder="Search For a Laptop" name="srch-term" id="srch-term"/>
+			                                <span class="input-group-btn">
+			                                    <button class="btn btn-danger" type="submit" style="background-color:black;border-color:black;">
+			                                        <span class=" glyphicon glyphicon-search"></span>
+			                                    </button>
+			                                </span>
+			                            </div>
+			          </form>
+			          </div>
+				</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Browse Laptops</h2>
+                    {% if search_term is not none %}
+                    <h3>Search Terms: {{search_term}}</h3>
+                    {% endif %}
+                    <h3 class="section-subheading text-muted">Click on a laptop to obtain a summary of detected failures.</h3>
+                </div>
+            </div>
+            <div class="row">
+            	{% for laptop in laptops %}
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="/index?srch-term={{search_term}}&asin={{laptop['asin']}}#product" class="portfolio-link" style='background-color:white;'>
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{{laptop['imUrl']}}" class="img-responsive" alt="" style="height: 200px;margin: 0 auto;">
+                    </a>
+                    <div class="portfolio-caption", style="height: 138px;">
+                        <h4>{{laptop['title']|safe}}</h4>
+                        <p class="text-muted">{{laptop['reviews']}} reviews</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    
+    <section id="product" class="bg-light-gray">
+    {% if laptop is not none %}
+        <div class="col-lg-12 text-center">
+            <div class="panel panel-default" id="rootwizard">
+                        <div class="panel-heading">
+                            <h3 class="section-heading"><a href="https://www.amazon.com/dp/{{asin}}" style="color: #000000">{{laptop['title']}}</a></h3>
+                        </div>
+                        <!-- <div class="row text-center">
+                          <img src="{{laptop['imUrl']}}" alt="best match" height="235" style="margin: 0 auto;">
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{{laptop['imUrl']}}" alt="best match" height="250" style="margin: 0 auto;">
+                            </div>
+                            
+        <div class="col-md-6">
+                     <div id="discretebarchart">
+                        <svg style="margin:0 auto;width:400px;height:250px;"></svg>
+                     </div>
+
+
+                        <script>
+
+        // data_discretebarchart=[{"values": [{"y": 71.0, "x": "Dec 13"}, {"y": 29.0, "x": "Mar 14"}, {"y": 3.0, "x": "Jun 14"}, {"y": 1.0, "x": "Sep 14"}], "key": "Serie 1", "yAxis": "1"}];
+        data_discretebarchart=[{"values": {{ barchart|safe }}, "key": "Serie 1", "yAxis": "1"}];
+
+
+        nv.addGraph(function() {
+        var chart = nv.models.discreteBarChart();
+
+        chart.margin({top: 30, right: 60, bottom: 60, left: 60});
+
+        chart.yAxis
+             .axisLabel('number of reviews');
+
+        chart.xAxis
+             .rotateLabels(-45);
+                        
+        chart.color(function(d){ return 'black'});
+
+        var datum = data_discretebarchart;
+
+
+
+        chart.yAxis
+             .tickFormat(d3.format(',.0f'))
+             .axisLabelDistance(-8);
+
+          d3.select('#discretebarchart svg')
+            .datum(datum)
+            .transition().duration(500)
+            .attr('width', 550)
+            .attr('height', 400)
+            .call(chart);
+});
+                        </script>
+        </div>
+                        </div>
+
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-pills" id="myPill">
+                                {% for title, example in examples %}
+                                    {% if title == "failure" %}
+                                <li class="active"><a href="#{{title}}" data-toggle="tab" aria-expanded="true">
+                                    {% else %}
+                                <li class=""><a href="#{{title}}" data-toggle="tab" aria-expanded="false">
+                                    {% endif %}
+                                    {{title}}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                {% for title, example in examples %}
+                                <div class="tab-pane fade active in" id="{{title}}">
+                                    <i style="font-size:18px;">{{rate[title][0]}}/{{rate[title][1]}} ({{rate[title][2]}}%) of the reviews discuss {{title}}.</i>
+                                    <h4>Here is what users are saying about {{title}}:</h4>
+                                    {% for ex in example %}
+                                    <blockquote><p style="font-size:16px;">"{{ex['message']|safe}}"</p><i>- {{ex['author']|safe}}</i></blockquote>
+                                    {% endfor %}
+                                    <br></br>
+                                    <h4>Reviews that discuss {{title}} are also talking about:</h4>
+                                    <div id="pi-{{title}}"><svg style="margin:0 auto;width:450px;height:450px;"></svg></div>
+                                </div>
+                                {% endfor %}
+                            </div>
+        </div>
+    {% else  %}
+        <div class="col-lg-12 text-center">
+            <div class="panel panel-default" id="rootwizard">
+                        <div class="panel-heading">
+                            <h3 class="section-heading">Please Select a Product Above</h3>
+                        </div>
+            </div>
+        </div>
+    {% endif %}
+    </section>
+    
+
+
+    <section id="similar" class="bg-light-gray">
+        {% if laptop is not none %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Similar Products</h2>
+                    <h3 class="section-subheading text-muted">Click on a laptop to obtain a summary of detected failures.</h3>
+                </div>
+            </div>
+            <div class="row">
+                {% for rel in related %}
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="/index?srch-term={{search_term}}&asin={{rel['asin']}}#product" class="portfolio-link" style='background-color:white;'>
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{{rel['imUrl']}}" class="img-responsive" alt="" style="height: 200px;margin: 0 auto;">
+                    </a>
+                    <div class="portfolio-caption", style="height: 138px;">
+                        <h4>{{rel['title']|safe}}</h4>
+                        <!-- <p class="text-muted">{{rel['reviews']}} reviews</p> -->
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </section>
+
+
+        <!-- About Section -->
+    <section id="about">
+<div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <i class="fa fa-4x fa-group text-primary sr-icons"></i>
+                    <p>
+                        We live in a world that is becoming ever more reliant on technology and our interactions with computers have become central to our lives. Our computers are not just tools that we use, but extensions of ourselves. A computer failure can be devastating due to loss of data that was not backed up, time spent without a computer, frustrating interactions with customer service, and potentially a time consuming search for a new device.
+                    </p>
+                    <i class="fa fa-4x fa-laptop text-primary sr-icons"></i>
+                    <p>
+                        FaultFindr is a platform that leverages <a href="https://www.amazon.com/Notebooks-Laptop-Computers/b?ie=UTF8&node=565108">Amazon product reviews</a> to identify failure modes and estimate failure rates for laptops so that those who are in the market for a new laptop can minimize the likelihood of experiencing such product failure. Since laptops are complicated devices, there are many ways in which they can fail. We try to elucidate the failure modes by extracting excerpts from reviews that describe a particular failure, and to give a distribution of the laptop components that are being discussed within reviews that describe a particular failure.
+                    </p>
+                    <i class="fa fa-4x fa-pie-chart text-primary sr-icons"></i>
+                    <p>
+                        In order to identify those reviews that discuss product failure, we perform some natural language processing on the review text, and feed each sentence in each review into a series of trained Naive Bayes models that make predictions on whether or not individual sentences discuss product failure, and which laptop components the reviews are also discussing. 
+                    </p>
+                    <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+                    <p>
+                        Currently FaultFindr is built on a <a href="http://jmcauley.ucsd.edu/data/amazon/">historical database</a> of about 15000 laptop reviews that span from 2000-2014 since Amazon does not provide product reviews in its API and makes it difficult to scrape reviews from their site. Nevertheless, with access to the bulk of Amazon reviews, more recent products could be added to the database.
+                        This application was built as an <a href="http://insightdatascience.com/">Insight Data Science</a> project. For more information, please see the <a href="#slides">slides</a> below, see the code on my github page, or contact me.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="slides" class="bg-light-gray" style="background-color:#f2f2f2;">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Slideshow</h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <iframe src="//www.slideshare.net/slideshow/embed_code/key/9rBorkhaFqlAPF" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/secret/9rBorkhaFqlAPF" title="FaultFindr: Identifying Laptop Failures from Amazon Reviews" target="_blank">FaultFindr: How might this laptop fail?</a> </strong> from <strong><a href="//www.slideshare.net/BrendonOLeary" target="_blank">Brendon O&#x27;Leary</a></strong> </div>
+            </div>
+        </div>
+
+    </section>
+
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Contact Us</h2>
+                    <h3 class="section-subheading text-muted">If you would like to get in touch, please provide a message below.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; FaultFindr 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="https://github.com/b-r-oleary"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/in/brendonoleary"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+<!--                 <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="static/js/classie.js"></script>
+    <script src="static/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="static/js/jqBootstrapValidation.js"></script>
+    <script src="static/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="static/js/agency.js"></script>
+
+    <script>
+        $(function () {
+      $('#myPill a:last').tab('show')
+    });
+           $(function () {
+      $('#myPill a:first').tab('show')
+    });
+    </script>
+
+    {% if laptop is not none %}
+    {% for title, pidata in piechart.items() %}
+
+    <script>
+
+    
+
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+
+        var data_pi=[{"values": {{ pidata|safe }}, "key": "Serie 1"}];
+
+    // {top: 20, right: 60, bottom: 100, left: 60}
+    chart.margin({top: 0, right: 0, bottom: 0, left: 0});
+        var datum = data_pi[0].values;
+
+    chart.color(d3.scale.category20c().range());
+
+    chart.tooltipContent(function(key, y, e, graph) {
+          var x = String(key);
+              var y =  String(y)  + ' mentions';
+
+              tooltip_str = '<center><b>'+x+'</b></center>' + y;
+              return tooltip_str;
+              });
+    chart.showLabels(true);
+
+    chart.donut(true);
+
+    chart.showLegend(false);
+
+
+
+
+        chart
+            .x(function(d) { return d.label })
+            .y(function(d) { return d.value });
+
+        chart.width(500);
+
+        chart.height(500);
+
+
+            d3.select('#pi-{{title}} svg')
+            .datum(datum)
+            .transition().duration(500)
+            .attr('width', 500)
+            .attr('height', 500)
+            .call(chart);
+
+        });
+
+    </script>
+
+    {% endfor %}
+    {% endif %}
+
+
+</body>
+
+</html>

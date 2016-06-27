@@ -63,7 +63,7 @@ def combined_n_grams(tokens, n_min=1, n_max=3, stop='.',
 
 def get_vocab(text):
     """
-    obtains the single word frequencies using get_n_gramsw?1. 6
+    obtains the single word frequencies using get_n_gramsw?
     """
     vocab = get_n_grams(text, n_min=1, n_max=1)[1]
     return defaultdict(int, **{k[0]:v for k, v in vocab.items()})

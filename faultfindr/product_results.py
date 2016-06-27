@@ -167,7 +167,8 @@ class ProductResults(object):
                  n_max_results=9,
                  group_examples_by_author=True,
                  sentence_tokenizer=None,
-                 sentence_mapping=False):
+                 sentence_mapping=False,
+                 auto=True):
         """
         inputs:
         asin: (string) an amazon product ID string 
@@ -181,6 +182,8 @@ class ProductResults(object):
                                     author into the same line.
         sentence_tokenizer: a sentence tokenizer object, or a filename for a sentence tokenizer
         sentence_mapping: (boolean) whether or not to try to make the tokenized text to the untokenized text.
+        auto: (boolean) whether of not, the evaluation of rates and examples
+        	  should be automatically computed in the initialization of the object.
         """
 
         self.asin           = str(asin)
@@ -189,34 +192,37 @@ class ProductResults(object):
         self.n_max_results  = n_max_results
         self.group_examples_by_author = group_examples_by_author
         self.sentence_mapping         = sentence_mapping
+        self.auto           = auto
         
         # we have a default config file that we can pass in to open a database connection
         # this function either opens that connection, opens a connection for an input yaml
         # file, or grabs an input database connection.
         self.conn = self._get_conn(conn)
         
-        # we have a preloaded model, but this opens a new model if a .pkl filename is passed:
-        self._get_model(model)
-
-        # this is loading of a pretrained sentence tokenizer model
-        self._get_sentence_tokenizer(sentence_tokenizer)
-        
-        # grab the reviews data and break it up into sentences:
+        # grab the reviews data
         self.reviews   = self._get_reviews()
-        self.sentences = self._get_sentences()
-        
-        # perform the analysis:
-        self.ranked_examples         = self._get_ranked_examples()
-        self.formatted_examples      = self._get_top_formatted_examples()
-        self.review_rates            = self._get_review_rates()
-        self.discussion_distributions= self._get_discussion_distributions()
 
-        if self.sentence_mapping:
-            self.formatted_examples = self._fuzzy_match_examples()
-        
-        if self.group_examples_by_author:
-            self.formatted_examples = self._aggregate_examples_by_same_reviewer()
-        
+        # perform the analysis on the review data:
+        if self.auto:
+	        # this is loading of a pretrained sentence tokenizer model
+	        self._get_sentence_tokenizer(sentence_tokenizer)
+	        self.sentences = self._get_sentences()
+
+	        # we have a preloaded model, but this opens a new model if a .pkl filename is passed:
+	        self._get_model(model)
+	        
+	        # perform the analysis:
+	        self.ranked_examples         = self._get_ranked_examples()
+	        self.formatted_examples      = self._get_top_formatted_examples()
+	        self.review_rates            = self._get_review_rates()
+	        self.discussion_distributions= self._get_discussion_distributions()
+
+	        if self.sentence_mapping:
+	            self.formatted_examples = self._fuzzy_match_examples()
+	        
+	        if self.group_examples_by_author:
+	            self.formatted_examples = self._aggregate_examples_by_same_reviewer()
+	        
     def __len__(self):
         return len(self.reviews)
     
